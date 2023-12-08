@@ -24,17 +24,26 @@ router.get('/', (req, res) => {
 //GET for ONE movie
 
 router.get('/:id', (req, res) => {
+  console.log('GET for ONE movie', req.params.id)
   const queryText = `
-      SELECT "movies"."id", "movies"."title", "movies"."description" 
-      FROM "movies"
-      `;
+      SELECT 
+      "m"."id",
+      "m"."title",
+      "m"."poster",
+      "m"."description",
+      "genres"."name"
+
+      FROM "movies" AS "m"
+      JOIN "movies_genres" ON "m"."id" = "movies_genres"."movie_id"
+      JOIN "genres" ON "genres"."id" = "movies_genres"."genre_id"
+      WHERE "m"."id" = $1;`;
 
     pool.query(queryText, [req.params.id]).then((result) => {
       res.send(result.rows);
     }).catch(error => {
       console.error(`Error in GET '/api/movie/:id`, error)
-      res.sendStatus(500)
-    })
+      res.sendStatus(500);
+    });
 });
 
 
