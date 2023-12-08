@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
+
+//GET for ALL movies
 router.get('/', (req, res) => {
   const query = `
     SELECT * FROM "movies"
@@ -17,6 +19,15 @@ router.get('/', (req, res) => {
     })
 
 });
+
+
+//GET for ONE movie
+
+
+
+
+
+
 
 router.post('/', (req, res) => {
   console.log(req.body);

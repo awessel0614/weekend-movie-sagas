@@ -1,6 +1,7 @@
 import {HashRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import MovieList from '../MovieList/MovieList';
+import DetailPage from '../DetailPage/DetailPage.jsx';
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
         </Route>
         
         {/* Details page */}
-
+        <Route path="/detailpage/:id" exact>
+          <DetailPage />
+        </Route>
         {/* Add Movie page */}
         
       </Router>
