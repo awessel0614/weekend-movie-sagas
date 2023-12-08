@@ -21,7 +21,6 @@ function DetailPage() {
 
     return (
         <>
-        <p>{details.title}</p>
         </>
     );
 }

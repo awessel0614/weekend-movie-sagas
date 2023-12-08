@@ -13,7 +13,11 @@ function MovieList() {
   }, []);
 
 
-  const clickedMovie = (event) => {
+  function clickedMovie (id) {
+      console.log("running clickedMovie function");
+      console.log(id);
+
+
       history.push("/detailpage/:id")
 
   }
@@ -26,7 +30,7 @@ function MovieList() {
           return (
             <div data-testid='movieItem' key={movie.id}>
               <h3>{movie.title}</h3>
-              <img src={movie.poster} alt={movie.title} onClick={clickedMovie}/>
+              <img src={movie.poster} alt={movie.title} onClick={() => clickedMovie(movie.id)}/>
             </div>
           );
         })}
