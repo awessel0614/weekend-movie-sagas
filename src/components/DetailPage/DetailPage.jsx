@@ -27,9 +27,15 @@ function DetailPage() {
 }
 
 
+    useEffect(() => {
+        showClickedMovie();
+        dispatch({type: 'FETCH_MOVIES'});
+    }, []);
+
     return (
         <>
-        <p>Hello!</p>
+        <p>{selectedMovie.title}</p>
+        <p>{selectedMovie.description}</p>
         
         </>
     );
