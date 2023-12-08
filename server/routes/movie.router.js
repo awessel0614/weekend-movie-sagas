@@ -23,7 +23,19 @@ router.get('/', (req, res) => {
 
 //GET for ONE movie
 
+router.get('/:id', (req, res) => {
+  const queryText = `
+      SELECT "movies"."id", "movies"."title", "movies"."description" 
+      FROM "movies"
+      `;
 
+    pool.query(queryText, [req.params.id]).then((result) => {
+      res.send(result.rows);
+    }).catch(error => {
+      console.error(`Error in GET '/api/movie/:id`, error)
+      res.sendStatus(500)
+    })
+});
 
 
 
