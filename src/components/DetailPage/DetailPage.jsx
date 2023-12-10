@@ -14,7 +14,7 @@ function DetailPage() {
    const params = useParams();
 
    const movieDetail = useSelector(store => store.movieDetail);
-   
+   const movieGenre = movieDetail[0] ? movieDetail.map(movie => movie.name).join(', ') : null;
 
     useEffect(() => {
         console.log(movieDetail);
@@ -58,7 +58,12 @@ movieDetail reducer when the back button was clicked */}
 
         <img src={movieDetail[0].poster} alt={movieDetail[0].title} />
         <p>{movieDetail[0].title}</p>
-        <p>{movieDetail[0].name}</p>
+        {/* {movieDetail.map((movie) =>
+           <div key={movie.id}>
+           {movie.name}
+           </div>
+        )} */}
+         <p>{movieGenre}</p>
         <p>{movieDetail[0].description}</p>
 
 
