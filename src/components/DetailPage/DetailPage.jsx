@@ -13,12 +13,17 @@ function DetailPage() {
    const dispatch = useDispatch();
    const params = useParams();
 
+   const genreDetail = useSelector(store => store.genres)
    const movieDetail = useSelector(store => store.movieDetail);
-   const movieGenre = movieDetail[0] ? movieDetail.map(movie => movie.name).join(', ') : null;
+   const movieGenre = genreDetail[0] ? genreDetail.map(movie => movie.name).join(', ') : null;
+
+   
+
 
     useEffect(() => {
         console.log(movieDetail);
-        dispatch({type: 'FETCH_DETAIL_PAGE', payload: params});
+        dispatch({type: 'FETCH_DETAIL_PAGE', payload: params})
+        dispatch({type: 'FETCH_GENRES', payload: params});
     }, [params]);
 
 
@@ -50,7 +55,7 @@ movieDetail reducer when the back button was clicked */}
                 <p>{thing.description}</p>
 
             </div>
-        
+
         )} */}
         {/* ^^^what i originally had, not sure why it 
         didn't work, and why it was also making things
@@ -58,11 +63,6 @@ movieDetail reducer when the back button was clicked */}
 
         <img src={movieDetail[0].poster} alt={movieDetail[0].title} />
         <p>{movieDetail[0].title}</p>
-        {/* {movieDetail.map((movie) =>
-           <div key={movie.id}>
-           {movie.name}
-           </div>
-        )} */}
          <p>{movieGenre}</p>
         <p>{movieDetail[0].description}</p>
 

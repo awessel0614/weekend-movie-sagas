@@ -30,12 +30,9 @@ router.get('/:id', (req, res) => {
       "m"."id",
       "m"."title",
       "m"."poster",
-      "m"."description",
-      "genres"."name"
-
+      "m"."description"
+      
       FROM "movies" AS "m"
-      JOIN "movies_genres" ON "m"."id" = "movies_genres"."movie_id"
-      JOIN "genres" ON "genres"."id" = "movies_genres"."genre_id"
       WHERE "m"."id" = $1;`;
 
     pool.query(queryText, [req.params.id]).then((result) => {
