@@ -8,19 +8,36 @@ function MovieList() {
   const dispatch = useDispatch();
   const movies = useSelector(store => store.movies);
 
+
+  // function clickedMovie (id) {
+  //   console.log("running clickedMovie function");
+  //   console.log(id);
+
+  //   dispatch({type:'FETCH_DETAIL_PAGE', payload:id});
+
+  //   history.push(`/detailpage/${id}`)
+
+  // };
+//^^^this is what i originally had
+
+
+  const clickedMovie = id => {
+    console.log("running clickedMovie function");
+    console.log(id);
+
+    dispatch({type:'FETCH_DETAIL_PAGE', payload:id});
+
+    history.push(`/detailpage/${id}`)
+
+  };
+
+
   useEffect(() => {
     dispatch({ type: 'FETCH_MOVIES' });
   }, []);
 
 
-  function clickedMovie (id) {
-      console.log("running clickedMovie function");
-      console.log(id);
-
-
-      history.push("/detailpage/:id")
-
-  }
+ 
 
   return (
     <main>
