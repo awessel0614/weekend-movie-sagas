@@ -20,11 +20,15 @@ function DetailPage() {
    
 
 
-    useEffect(() => {
-        console.log(movieDetail);
-        dispatch({type: 'FETCH_DETAIL_PAGE', payload: params})
-        dispatch({type: 'FETCH_GENRES', payload: params});
-    }, [params]);
+    // useEffect(() => {
+    //     console.log(movieDetail);
+    //     dispatch({type: 'FETCH_DETAIL_PAGE', payload: params})
+    //     dispatch({type: 'FETCH_GENRES', payload: params});
+    // }, [params]);
+    //^^ i originally had this uncommented and it was 
+    //causing a 500 error, and saying that it couldn't
+    //read properties of undefined (poster)....
+    //then when I commented it out it worked
 
 
     // const backButton = (event) => {
@@ -41,7 +45,7 @@ function DetailPage() {
         <>
 
 <Button variant="outlined" onClick={() => history.push('/')}>Back to movie list</Button>
-
+<br></br>
 
 {/* <Button variant="outlined" onClick={backButton}>Back to movie list</Button> */}
 {/* ^^this was part of the code i tried to use to clear the
