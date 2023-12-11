@@ -22,7 +22,6 @@ router.get('/', (req, res) => {
 
 
 //GET for ONE movie
-
 router.get('/:id', (req, res) => {
   console.log('GET for ONE movie', req.params.id)
   const queryText = `

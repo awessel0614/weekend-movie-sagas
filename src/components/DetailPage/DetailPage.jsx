@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router';
 import axios from 'axios';
+import { Card, CardContent, Grid, Paper, Typography, Container } from '@mui/material';
 
 
 
@@ -42,16 +43,45 @@ function DetailPage() {
 
 
     return (
-        <>
+    <>
+         <Button variant="contained" onClick={() => history.push('/')}>Back to movie list</Button>
+                <br></br>
+                <br></br>
 
-<Button variant="outlined" onClick={() => history.push('/')}>Back to movie list</Button>
-<br></br>
+        <Container>
+            <Grid container sx={{justifyContent: "center"}}>
+                <Paper elevation={8}>
+                    <Card style = {{ backgroundColor: "lightblue"}}>
+                        <CardContent>
+                            <img src={movieDetail[0].poster} alt={movieDetail[0].title} />
+                            <h2>{movieDetail[0].title}</h2>
+                            <h3>Genre(s): {movieGenre}</h3>
+                            <p>{movieDetail[0].description}</p>
+                        </CardContent>
+                    </Card>
+                </Paper>
+            </Grid>
+        </Container>
+    </>
+    );
+}
+
+export default DetailPage;
+
+
+
+
+
+
+
+
+
 
 {/* <Button variant="outlined" onClick={backButton}>Back to movie list</Button> */}
 {/* ^^this was part of the code i tried to use to clear the
 movieDetail reducer when the back button was clicked */}
 
-<br></br>
+
         {/* {movieDetail.map((thing) =>
             <div key={thing.id}>
                 <h1>{thing.title}</h1>
@@ -64,15 +94,3 @@ movieDetail reducer when the back button was clicked */}
         {/* ^^^what i originally had, not sure why it 
         didn't work, and why it was also making things
         appear on the main page */}
-
-        <img src={movieDetail[0].poster} alt={movieDetail[0].title} />
-        <p>{movieDetail[0].title}</p>
-         <p>{movieGenre}</p>
-        <p>{movieDetail[0].description}</p>
-
-
-        </>
-    );
-}
-
-export default DetailPage;

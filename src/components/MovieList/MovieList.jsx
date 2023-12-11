@@ -30,28 +30,12 @@ function MovieList() {
 
 
   return (
-    // <main>
-    //   <h1>MovieList</h1>
-    //   <section className="movies">
-    //     {movies.map(movie => {
-    //       return (
-    //         <div data-testid='movieItem' key={movie.id}>
-    //           <h3>{movie.title}</h3>
-    //           <img src={movie.poster} alt={movie.title} onClick={() => clickedMovie(movie.id)}/>
-    //         </div>
-    //       );
-    //     })}
-    //   </section>
-    // </main>
     <>
-        <Grid
-          container
-        >
+        <Grid container sx={{justifyContent: "center"}}>
             {movies.map(movie => {
                 return (
                     <>
                       <Grid
-                        
                         onClick={() => clickedMovie(movie.id)}
                         margin = {'15px'}
                       >
@@ -61,10 +45,8 @@ function MovieList() {
                           key={movie.id}
                           >
                               <CardContent>
-                                  
                                       <h3>{movie.title}</h3>
                                       <img src={movie.poster} alt={movie.title} />
-                                  
                               </CardContent>
                           </Card>
                         </Paper>
@@ -72,7 +54,6 @@ function MovieList() {
                     </>
                 )
             })}
-
         </Grid>
     </>
   );
