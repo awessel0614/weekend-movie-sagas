@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 import { useHistory } from 'react-router-dom';
 import { Card, CardContent, Grid, Paper, Typography } from '@mui/material';
+import { styled } from '@mui/system';
 
 
 
@@ -28,6 +29,16 @@ function MovieList() {
 
   };
 
+  const StyledMovieListImage = styled('div')(({ theme }) => ({
+    "&:hover": {
+      cursor: "pointer",
+      opacity: 0.5,
+      border: `solid 5px blue`,
+    },
+  }));
+
+
+          
 
   return (
     <>
@@ -36,17 +47,24 @@ function MovieList() {
                 return (
                     <>
                       <Grid
-                        onClick={() => clickedMovie(movie.id)}
                         margin = {'15px'}
                       >
                         <Paper elevation={8}>
                           <Card 
-                          style = {{ height: '350px', width: '225px', backgroundColor: "lightblue"}} 
+                          style = {{ height: '350px', width: '225px', paddingBottom:'30px', backgroundColor: "lightblue"}} 
                           key={movie.id}
                           >
                               <CardContent>
                                       <h3>{movie.title}</h3>
-                                      <img src={movie.poster} alt={movie.title} />
+                                      <StyledMovieListImage  >
+                                        <div>
+                                          <img
+                                            src={movie.poster}
+                                            alt={movie.title}
+                                            onClick={() => clickedMovie(movie.id)}
+                                          />
+                                        </div>
+                                      </StyledMovieListImage>
                               </CardContent>
                           </Card>
                         </Paper>
@@ -61,3 +79,8 @@ function MovieList() {
 
 
 export default MovieList;
+
+
+
+
+
