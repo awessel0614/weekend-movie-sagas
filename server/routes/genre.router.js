@@ -14,9 +14,9 @@ router.get('/:id', (req, res) => {
 
   const queryText = `
     SELECT 
-    "genres"."id",
-    "genres"."name",
-    "movies_genres"."id" AS "id_of_movie_genre"
+      "genres"."id",
+      "genres"."name",
+      "movies_genres"."id" AS "id_of_movie_genre"
 
     FROM "movies"
     JOIN "movies_genres" ON "movies_genres"."movie_id" = "movies"."id"

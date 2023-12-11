@@ -25,6 +25,7 @@ function* fetchAllMovies() {
   }
 }
 
+//Gets details for the clicked on movie
 function* fetchDetailPage(action) {
   try {
     const results = yield axios.get(`/api/movies/${action.payload}`);
@@ -36,6 +37,7 @@ function* fetchDetailPage(action) {
   }
 }
 
+//Gets genre detail for the clicked on movie
 function* fetchGenres(action) {
   try{ 
     const results = yield axios.get(`/api/genres/${action.payload}`);
@@ -82,18 +84,6 @@ const genres = (state = [], action) => {
       return state;
   }
 }
-
-// const movieDetail = (state = [], action) => {
-//   switch (action.type) {
-//     case 'SET_DETAILS':
-//       return action.payload;
-//     case 'RESET_DETAIL_PAGE':
-//       return [];
-//     default:
-//       return state;
-//   }
-// }
-
 
 
 // Create one store that all components can use

@@ -26,10 +26,10 @@ router.get('/:id', (req, res) => {
   console.log('GET for ONE movie', req.params.id)
   const queryText = `
       SELECT 
-      "m"."id",
-      "m"."title",
-      "m"."poster",
-      "m"."description"
+        "m"."id",
+        "m"."title",
+        "m"."poster",
+        "m"."description"
       
       FROM "movies" AS "m"
       WHERE "m"."id" = $1;`;
