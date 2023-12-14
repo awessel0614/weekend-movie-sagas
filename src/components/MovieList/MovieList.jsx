@@ -17,6 +17,7 @@ function MovieList() {
     dispatch({ type: 'FETCH_MOVIES' });
   }, []);
 
+   
   //Function to get and store movie/genre details based on id when the user clicks on a movie
   const clickedMovie = id => {
     console.log("running clickedMovie function");
@@ -32,11 +33,11 @@ function MovieList() {
 
   //adds hover styling when cursor goes over movie poster
   const StyledMovieListImage = styled('div')(({ theme }) => ({
-      "&:hover": {
-          cursor: "pointer",
-          opacity: 0.5,
-          border: `solid 5px blue`,
-    },
+    "&:hover": {
+        cursor: "pointer",
+        opacity: 0.5,
+        border: `solid 5px blue`,
+        },
   }));
 
 

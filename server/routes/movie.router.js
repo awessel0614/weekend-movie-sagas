@@ -35,7 +35,8 @@ router.get('/:id', (req, res) => {
       WHERE "m"."id" = $1;`;
 
     pool.query(queryText, [req.params.id]).then((result) => {
-      res.send(result.rows);
+      //TODO: make sure .length is greater than zero
+      res.send(result.rows[0]);
     }).catch(error => {
       console.error(`Error in GET '/api/movie/:id`, error)
       res.sendStatus(500);
